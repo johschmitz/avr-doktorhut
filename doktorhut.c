@@ -53,7 +53,7 @@ int main (void)
 
     uint8_t pattern_idx = 0;
     uint8_t elem_idx = 0;
-    uint8_t delay = 100;
+    uint8_t delay = pattern_delays[0];
     uint8_t repetition_count = 0;
     while(1) {
         switch_leds(patterns[elem_idx]);
