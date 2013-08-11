@@ -1,5 +1,5 @@
 # MCU name
-MCU = attiny2313 
+MCU = atmega168
 
 # Compiler
 CC = avr-gcc
