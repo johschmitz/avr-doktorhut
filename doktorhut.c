@@ -48,9 +48,9 @@ int main (void)
     DDRC = (1 << DDC0) | (1 << DDC1) | (1 << DDC2) | (1 << DDC3) | (1 << DDC4) | (1 << DDC5) | (1 << DDC6);
     DDRD = (1 << DDD0) | (1 << DDD1) | (1 << DDD2) | (1 << DDD3) | (1 << DDD4) | (1 << DDD5) | (1 << DDD6) | (1 << DDD7);
 
-    uint8_t pattern_idx = 0;
-    uint16_t elem_idx = 0;
-    uint16_t delay = pattern_delays[0];
+    uint8_t pattern_idx = first_pattern-1;
+    uint16_t elem_idx = start_lines[pattern_idx];
+    uint16_t delay = pattern_delays[first_pattern-1];
     uint8_t repetition_count = 0;
     while(1) {
         switch_leds(patterns[elem_idx]);
@@ -58,7 +58,7 @@ int main (void)
         // next element of pattern
         elem_idx++;
         // last element reached?
-        if (elem_idx >= pattern_endlines[pattern_idx]) {
+        if (elem_idx > pattern_endlines[pattern_idx]) {
             // count repetitions
             repetition_count++;
             // last repetition reached?
